@@ -45,8 +45,7 @@ class InMemoryCustomerGateway(CustomerGateway):
 
     def add_customer(self, customer):
         self.customers.append(customer)
-        if self.file_path != '':
-            persist(self.file_path, self.customers)
+        persist(self.file_path, self.customers)
         return customer.id
 
     def retrieve_all_customers(self):
@@ -59,8 +58,7 @@ class InMemoryCustomerGateway(CustomerGateway):
         else:
             customer = filtered[0]
             self.customers.remove(customer)
-            if self.file_path != '':
-                persist(self.file_path, self.customers)
+            persist(self.file_path, self.customers)
             return customer
 
     def match_customer(self, dictionary):
